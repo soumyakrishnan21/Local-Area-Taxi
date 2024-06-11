@@ -1,0 +1,31 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<table width="200" border="1" class="table table-responsive">
+  <tr>
+    <th scope="col" style="color: black">#</th>
+    <th scope="col" style="color: black">Username</th>
+    <th scope="col" style="color: black">Complaint</th>
+    <th scope="col" style="color: black">Comlaint_date</th>
+    <th scope="col" style="color: black">Reply</th>
+  </tr>
+
+  {% for i in data %}
+      <tr>
+        <td style="color: black"> {{ loop.index }} </td>
+        <td style="color: black"> {{ i['user_name'] }}&nbsp;</td>
+        <td style="color: black"> {{ i['complaint'] }} </td>
+        <td style="color: black"> {{ i['cdate'] }} </td>
+        {% if i['reply']=='pending' %}
+              <td colspan="2"><a href="/send_reply/{{ i['cid'] }}" style="color: blue">Send Reply</a></td>
+            {% else %}
+            <td style="color: black"> {{ i['reply'] }}<br>
+           {{ i['rdate'] }} </td>
+        {% endif %}
+
+      </tr>
+  {% endfor %}
+</table>
+</body>
+{% endblock %}

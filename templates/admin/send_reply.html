@@ -1,0 +1,16 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<body>
+<form action="/send_reply_post/{{ data }}" method="post"><table border="1">
+  <tr>
+    <th scope="row" style="color: black">Reply</th>
+    <td><label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="45" rows="5" required></textarea></td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><div align="center"><input type="submit" name="button" id="button" value="Send" class="btn-primary"/></div> </th>
+    </tr>
+</table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<body>
+<form action="/add_category" method="post"><table class="table table-responsive">
+  <tr>
+    <th scope="row" style="color: black">Category</th>
+    <td><label for="textarea"></label>
+     <input type="text" name="c" required>
+    </td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><div align="center"><input type="submit" name="button" id="button" value="ADD" class="btn-primary"/></div> </th>
+    </tr>
+</table>
+</form>
+</body>
+{% endblock %}

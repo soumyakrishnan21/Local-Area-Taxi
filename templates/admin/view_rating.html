@@ -1,0 +1,21 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<body>
+<table width="200" border="1" class="table table-responsive">
+  <tr>
+    <th scope="col" style="color: black">#</th>
+    <th scope="col" style="color: black">Name</th>
+    <th scope="col" style="color: black">Rating</th>
+    <th scope="col" style="color: black">Date</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td style="color: black">&nbsp;{{ loop.index }}</td>
+    <td style="color: black">&nbsp;{{ i['user_name'] }}</td>
+    <td style="color: black">&nbsp;{{ i['rate'] }}</td>
+    <td style="color: black">&nbsp;{{ i['date'] }}</td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

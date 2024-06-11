@@ -1,0 +1,42 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body class="pre-scrollable">
+<table  border="1" class="table table-responsive">
+  <tr>
+    <th scope="col" style="color: black">#</th>
+    <th scope="col" style="color: black">Name &
+    <p>Image</p></th>
+    <th scope="col" style="color: black">Age</th>
+    <th scope="col" style="color: black">Address</th>
+    <th scope="col" style="color: black">Location</th>
+    <th scope="col" style="color: black">Phone</th>
+    <th scope="col" style="color: black">Email</th>
+    <th scope="col" style="color: black">Licence</th>
+    <th scope="col"style="color: black">&nbsp;</th>
+
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td style="color: black">{{ loop.index }}</td>
+    <td  style="color: black;font-size: x-small;">{{ i['name'] }}<br/><img src="{{ i['image'] }}" height="50" width="50"/></td>
+  <td  style="color: black;font-size: x-small">{{ i['age'] }}</td>
+    <td  style="color: black;font-size: x-small">{{ i['place'] }}<br>{{ i['post'] }}<br>{{ i['pin'] }}<br>{{ i['district'] }}</td>
+    <td  style="color: black;font-size: x-small">{{ i['latitude'] }}<br>{{ i['longitude'] }}</td>
+      <td  style="color: black;font-size: x-small"> {{ i['phone'] }} </td>
+    <td  style="color: black;font-size: x-small;">{{ i['email'] }}</td>
+    <td  style="color: black;font-size: x-small;">{{ i['licence_no'] }}</td>
+ {% if i['user_type']=='pending' %}
+    <td><p><a href="/approve_driver/{{ i['login_id'] }}" class=" btn-success">Approve</a></p>
+    <p><a href="/reject_driver/{{ i['login_id'] }}" class=" btn-danger">Reject</a></p></td>
+      {% elif i['user_type']=='driver' %}
+      <td style="color: green">Accepted</td>
+      {% else %}
+      <td style="color: red">Rejected</td>
+      {% endif %}
+
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}
